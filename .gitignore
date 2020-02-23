@@ -1,3 +1,4 @@
 obj
 .*
 reference
+*.a
