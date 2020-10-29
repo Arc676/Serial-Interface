@@ -19,7 +19,7 @@ SerialConnection* initSerialConnection() {
 	SerialConnection* sc = malloc(sizeof(SerialConnection));
 	memset(sc, 0, sizeof(SerialConnection));
 	sc->fd = -1;
-	sc->freq = 9600;
+	sc->freq = B9600;
 	return sc;
 }
 
@@ -29,7 +29,7 @@ void disconnectSerialConnection(SerialConnection* sc) {
 }
 
 void destroySerialConnection(SerialConnection* sc) {
-	tcsetattr(sc->fd, TCSANOW, &(sc->oldtio));
+	if (sc->fd > 0) disconnectSerialConnection(sc);
 	free(sc);
 }
 

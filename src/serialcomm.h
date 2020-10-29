@@ -45,7 +45,7 @@ typedef struct SerialConnection {
 } SerialConnection;
 
 /**
- * Allocates memory for a new serial connection
+ * Allocates memory for a new serial connection with baud rate 9600
  * @return A newly allocated, uninitialized serial connection
  */
 SerialConnection* initSerialConnection();
