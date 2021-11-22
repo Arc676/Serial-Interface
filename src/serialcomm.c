@@ -1,4 +1,4 @@
-// Copyright (C) 2020 Arc676/Alessandro Vinciguerra
+// Copyright (C) 2020-1 Arc676/Alessandro Vinciguerra
 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -33,7 +33,7 @@ void destroySerialConnection(SerialConnection* sc) {
 	free(sc);
 }
 
-int setupSerial(SerialConnection* sc, char* device) {
+int setupSerial(SerialConnection* sc, const char* device) {
 	if (strlen(device) == 0) {
 		return 0;
 	}
@@ -62,12 +62,12 @@ int setupSerial(SerialConnection* sc, char* device) {
 	return 1;
 }
 
-size_t writeSerial(SerialConnection* sc, unsigned char* data, size_t length) {
+size_t writeSerial(SerialConnection* sc, const unsigned char* data, const size_t length) {
 	if (sc->fd < 0) return 0;
 	return write(sc->fd, data, length);
 }
 
-size_t readSerial(SerialConnection* sc, unsigned char* data, size_t length) {
+size_t readSerial(SerialConnection* sc, unsigned char* data, const size_t length) {
 	if (sc->fd < 0) return 0;
 	return read(sc->fd, data, length);
 }

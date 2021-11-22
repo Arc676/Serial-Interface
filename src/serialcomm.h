@@ -1,4 +1,4 @@
-// Copyright (C) 2020 Arc676/Alessandro Vinciguerra
+// Copyright (C) 2020-1 Arc676/Alessandro Vinciguerra
 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -69,7 +69,7 @@ void destroySerialConnection(SerialConnection* sc);
  * @param device Device on which to establish the connection (e.g. "/dev/ttyACM0")
  * @return Whether the initialization succeeded
  */
-int setupSerial(SerialConnection* sc, char* device);
+int setupSerial(SerialConnection* sc, const char* device);
 
 /**
  * Writes data through a serial connection
@@ -78,7 +78,7 @@ int setupSerial(SerialConnection* sc, char* device);
  * @param length Number of bytes to write
  * @return The number of bytes actually written
  */
-size_t writeSerial(SerialConnection* sc, unsigned char* data, size_t length);
+size_t writeSerial(SerialConnection* sc, const unsigned char* data, const size_t length);
 
 /**
  * Reads data from a serial connection
@@ -87,7 +87,7 @@ size_t writeSerial(SerialConnection* sc, unsigned char* data, size_t length);
  * @param length Number of bytes to read
  * @return The number of bytes actually read
  */
-size_t readSerial(SerialConnection* sc, unsigned char* data, size_t length);
+size_t readSerial(SerialConnection* sc, unsigned char* data, const size_t length);
 
 #ifdef __cplusplus
 }
